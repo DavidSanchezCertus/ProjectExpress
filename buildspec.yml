@@ -6,6 +6,7 @@ phases:
       nodejs: 12
     commands:
       # Install dependencies needed for running tests
+      - n 16.15.1
       - npm install
       - npm install sequelize 
       # Upgrade AWS CLI to the latest version
