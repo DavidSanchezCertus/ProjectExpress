@@ -13,7 +13,7 @@ phases:
       - pip3 install --upgrade awscli
   build:
     commands:
-      - npm run dev
+      - npm run start
   post_build:
     commands:
       # Remove existing node_modules to clear dev dependencies
