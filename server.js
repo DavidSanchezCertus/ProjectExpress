@@ -1,18 +1,6 @@
-var express = require('express');
-var port = process.env.PORT || 3000;
-var app = express();
+const sequelize = require('./database/index.js');
 
-app.get('/', function(req, res) {
-  res.send({
-    "Output" : "Hello World!"
-  });
-});
-
-app.post('/', function(req, res) {
-  res.send({
-    "Output" : "Hello World!"
-  });
-});
-
-app.listen(port);
-module.exports = app;
+// Conectando base de datos
+  await sequelize.authenticate()
+  .then(() => console.log('Database connected'))
+  .catch((err) => console.log('Error connecting to database', err));
