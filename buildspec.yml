@@ -6,21 +6,21 @@ phases:
       nodejs: 12
     commands:
       # Install dependencies needed for running tests
-      - npm install
-      - npm install sequelize
-      - n 18
+      - n 20
+      - npm install --legacy-peer-deps
+      - npm install sequelize --legacy-peer-deps
       # Upgrade AWS CLI to the latest version
       - pip3 install --upgrade awscli
   build:
     commands:
-      - npm run dev
+      - npm run dev --legacy-peer-deps
   post_build:
     commands:
       # Remove existing node_modules to clear dev dependencies
       - rm -r node_modules
 
       # Install runtime dependencies
-      - npm install --production
+      - npm install --production --legacy-peer-deps
 
       # Do not remove this statement. This command is required for AWS CodeStar projects.
       # Update the AWS Partition, AWS Region, account ID and project ID in the project ARN in template-configuration.json file so AWS CloudFormation can tag project resources.
